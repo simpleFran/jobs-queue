@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2022" /* Versão moderna do JavaScript */,
+    "module": "NodeNext" /* Módulos nativos do Node.js modernos (ESM) */,
+    "moduleResolution": "NodeNext" /* Resolução de módulos compatível com ESM */,
+    "lib": ["es2022"] /* Bibliotecas globais disponíveis */,
+    "strict": true /* Ativa o modo estrito do TS (fundamental para sênior) */,
+    "skipLibCheck": true /* Pula checagem de tipos de bibliotecas de terceiros */,
+    "forceConsistentCasingInFileNames": true /* Evita erros de maiúsculas/minúsculas em imports */
+  }
+}

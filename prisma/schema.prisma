@@ -1,0 +1,35 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 1. Definimos o Enum corporativo de estados
+enum ItemStatus {
+  PENDING
+  PROCESSING
+  SUCCESS
+  FAILED
+}
+
+model Item {
+  id        String     @id @default(uuid()) // O banco gera o UUID automaticamente
+  name      String
+  status    ItemStatus @default(PENDING)     // Usa o Enum e assume PENDING por padrão
+  attempts  Int        @default(0)
+  createdAt DateTime   @default(now())
+
+  userId String // chave estrangeira do dono do item
+  user User @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id String @id @default(uuid())
+  email String @unique
+  passwordHash String
+  createdAt DateTime @default(now())
+  items Item[]  //Relação: 1 usuario tem varios items
+
+}
